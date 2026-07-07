@@ -1,0 +1,38 @@
+program: treinamento_usando_sweep_vgg16.py
+method: bayes
+
+metric:
+  name: val_loss
+  goal: minimize
+
+parameters:
+
+  img_size:
+    values:  [224, 256]
+
+  batch_size:
+    values: [16, 32]
+
+  dropout:
+    distribution: uniform
+    min: 0.3
+    max: 0.5
+
+  dense_units:
+    values: [256, 512]
+
+  learning_rate:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-4
+
+  l2:
+    distribution: log_uniform_values
+    min: 1e-4
+    max: 1e-3
+
+  unfreeze_layers:
+    values: [ 4, 5, 6 ]
+
+  epochs:
+    values: [30]

@@ -1,0 +1,38 @@
+program: treinamento_usando_efficientnet.py
+method: bayes
+
+metric:
+  name: val_loss
+  goal: minimize
+
+parameters:
+
+  img_size:
+    values: [240, 256, 300]
+
+  l2:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-4
+
+  batch_size:
+    values: [16,32,48]
+
+  unfreeze_layers:
+    values: [10,20,30]
+
+  learning_rate:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 5e-4
+
+  dense_units:
+    values: [128, 256, 384]
+
+  dropout:
+    distribution: uniform
+    min: 0.4
+    max: 0.55
+
+  epochs:
+    value: 40

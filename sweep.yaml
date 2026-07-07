@@ -1,0 +1,30 @@
+program: Treinamento_usando_sweep.py
+method: random
+
+metric:
+  name: val_loss
+  goal: minimize
+
+parameters:
+
+  img_size:
+    values: [128, 224]
+
+  batch_size:
+    values: [16, 32, 64]
+
+  dropout:
+    distribution: uniform
+    min: 0.3
+    max: 0.5
+
+  l2:
+    distribution: uniform
+    min: 0.0001
+    max: 0.0005
+
+  num_layers:
+    values: [3, 4, 5]
+
+  epochs:
+    values: [20, 30, 40]

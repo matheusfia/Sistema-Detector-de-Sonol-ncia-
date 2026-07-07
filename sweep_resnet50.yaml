@@ -1,0 +1,43 @@
+method: random
+metric:
+  goal: minimize
+  name: val_loss
+parameters:
+  batch_size:
+    values:
+    - 16
+    - 32
+    - 64
+  dense_units:
+    values:
+    - 128
+    - 256
+    - 512
+  dropout:
+    distribution: uniform
+    max: 0.6
+    min: 0.2
+  epochs:
+    values:
+    - 10
+    - 20
+    - 30
+  img_size:
+    values:
+    - 128
+    - 224
+    - 256
+  l2:
+    distribution: uniform
+    max: 0.001
+    min: 1e-05
+  learning_rate:
+    distribution: uniform
+    max: 0.001
+    min: 1e-05
+  unfreeze_layers:
+    values:
+    - 10
+    - 20
+    - 30
+program: treinamento_usando_resnet50.py
